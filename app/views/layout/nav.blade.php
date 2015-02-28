@@ -1,7 +1,11 @@
 <ul class="nav nav-tabs">
 
   <li role="presentation" ><a href='{{URL::route('home.index.get')}}'> Parduotuvė </a></li>
-
+  @if(Auth::check())
+    <li role="presentation" ><a href='{{URL::route('admin.logout.get')}}'>Atsijungti</a></li>
+  @else
+    <li role="presentation" ><a href='{{URL::route('admin.login.get')}}'> Prisijungti</a></li>
+  @endif
   <li role="presentation" class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
       Užsakymai <span class="caret"></span>

@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-
+<div class='col-md-12 col-sm-12'>
 	<h1 class='main-heading'> Prekės </h1>
 
 	@if(Session::has('global'))
@@ -17,7 +17,7 @@
 				<tbody>
 					@foreach($products as $product)
 						<td>
-	{{HTML::image("img/products/$product->sku/$product->photo" ,$product->title, array('width'=>'120px','class'=>'img-thumbnail'))}}
+	{{HTML::image("img/products/$product->photo" ,$product->title, array('width'=>'120px','class'=>'img-thumbnail'))}}
 						</td>
 						<td class='vert-align'>{{$product->sku}}</td>
 						<td class='vert-align'>{{str_limit($product->title, $limit = 15, $end = '...')}}</td>
@@ -47,4 +47,5 @@
 	@else
 		<h4> Šiuo metu prekių nėra, norėdami pridėti prekę spauskite čia <a href="{{URL::route('product.create.get')}}">Pridėti naują prekę</a></h4>
 	@endif
+</div>
 @stop

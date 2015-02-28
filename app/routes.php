@@ -5,6 +5,16 @@
 //Home route
 Route::get('/',['as'=>'home.index.get','uses'=>'HomeController@getIndex']);
 
+
+//admin login group
+Route::group(['before'=>'guest'],function(){
+	//admin logi
+	Route::get('/login',['as'=>'admin.login.get','uses'=>'AdminController@getLogin']);
+	//login post
+	Route::post('/login',['as'=>'admin.login.post','uses'=>'AdminController@postLogin']);
+});
+
+
 //create order - get
 Route::get('/order/new-order/{id}',['as'=>'order.create.get','uses'=>'OrderController@getCreate']);
 //create order - post
@@ -17,7 +27,10 @@ Route::get('/product/{id}',['as'=>'product.single.get','uses'=>'ProductControlle
 
 
 /*============================Admin routes============================*/
-Route::group(['before'=>'auth.basic','prefix'=>'admin'],function(){
+Route::group(['before'=>'auth','prefix'=>'admin'],function(){
+
+	//get logout
+	Route::get('/logout',['as'=>'admin.logout.get','uses'=>'AdminController@getLogout']);
 
 	//Orders group
 	Route::group(['prefix'=>'orders'],function(){

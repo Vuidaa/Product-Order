@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+<div class='col-md-12 col-sm-12'>
 	<h1 class='main-heading'> Redaguoti prekę </h1>
 	<div class='row'>
 		<div class='col-md-4 col-md-offset-4'>
@@ -41,7 +42,7 @@
 				</div>
 				<div class='form-group'>
 					{{Form::label('photo','Prekės nuotrauka')}}
-						{{HTML::image("img/products/$product->sku/$product->photo" ,null, array('class'=>'img-responsive'))}}
+						{{HTML::image("img/products/$product->photo" ,null, array('class'=>'img-responsive'))}}
 					{{Form::file('photo')}}
 
 					@if($errors->has('photo'))
@@ -54,4 +55,5 @@
 			{{Form::close()}}
 		</div>
 	</div>
+</div>
 @stop

@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+<div class='col-md-12'>
 	<h1 class='main-heading'> Pridėti naują prekę </h1>
 	<div class='row'>
 		<div class='col-md-4 col-md-offset-4'>
@@ -54,4 +55,5 @@
 			{{Form::close()}}
 		</div>
 	</div>
+</div>
 @stop

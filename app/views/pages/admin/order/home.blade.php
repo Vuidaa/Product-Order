@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-
+<div class='col-md-12 col-sm-12'>
 	<h1 class='main-heading'> Užsakymai </h1>
 
 	@if(Session::has('global'))
@@ -29,7 +29,12 @@
           <div class='row'>
 
             <div class='col-md-2'>
-              <h4> Prekė: </h4>
+              @if($order->product === null)
+                <h4> Prekė: </h4>
+              <p><b>Pavadinimas:</b></p> 
+                <p>Prekė nebeaktuali, greičiausia ji buvo pašalinta iš prekių katalogo.</p>
+              @else
+                <h4> Prekė: </h4>
               <p><b>Pavadinimas:</b></p> 
                 <p>{{str_limit($order->product->title, $limit = 15, $end = '...')}}</p>
               <p><b>Kaina:</b></p>
@@ -38,6 +43,7 @@
                 <p>{{str_limit($order->product->description, $limit = 10, $end = '...')}}</p>
               <p><b>Nuoroda į prekę:</b></p>
                 <p><a class='btn btn-default' href='{{URL::route('product.single-admin.get',['id'=>$order->product->id])}}' >Nuoroda</a></p> 
+              @endif
             </div>
 
             <div class='col-md-3'>
@@ -108,5 +114,5 @@
 	@else
 		<h4>Užsakymų nėra</h4>
 	@endif
-
+</div>
 @stop

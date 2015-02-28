@@ -104,7 +104,7 @@
 		<div class='row'>
 			<div class='col-md-12'>
 				<h4>{{$product->title}} - <b> {{$product->price_eu.','.$product->getCents().' €'}} </b></h4>
-				{{HTML::image("img/products/$product->sku/$product->photo" ,$product->title, array('class'=>'img-responsive'))}}
+				{{HTML::image("img/products/$product->photo" ,$product->title, array('class'=>'img-responsive'))}}
 			</div>
 		</div>
 	</div>

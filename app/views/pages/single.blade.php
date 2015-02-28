@@ -5,7 +5,7 @@
         <h1 class='main-heading'> Prekė</h1>
 
         <div class="thumbnail">
-            {{HTML::image("img/products/$product->sku/$product->photo" ,null)}}
+            {{HTML::image("img/products/$product->photo" ,null)}}
             <div class="caption">
                 <h4 class="pull-right">{{$product->price_eu .','.$product->getCents() }} €</h4>
                 <h4><a href="#">{{$product->title}}</a></h4>

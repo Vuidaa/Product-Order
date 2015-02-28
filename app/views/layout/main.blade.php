@@ -18,8 +18,8 @@
   </head>
   <body>
     <div class='container'>
+      @include('layout.nav')
       <div class='row'>
-        @include('layout.nav')
         @yield('content')
       </div>
     </div>
@@ -27,6 +27,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     {{ HTML::script('js/bootstrap.min.js') }}
-    {{ HTML::script('js/javascript.js') }}
   </body>
 </html>

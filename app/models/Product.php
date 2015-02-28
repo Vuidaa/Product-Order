@@ -41,9 +41,7 @@ Class Product extends Eloquent
 
 		if (Input::hasFile('photo'))
 		{
-			mkdir(public_path()."\img\products".'\\'.$this->sku);
-
-			$path = public_path()."\img\products\\".$this->sku;
+			$path = public_path()."\img\products\\";
 
 			$randName = $this->sku.'-'.Input::file('photo')->getClientOriginalName();
 
@@ -66,16 +64,14 @@ Class Product extends Eloquent
 	{
 		if(Input::hasFile('photo'))
 		{
-			$directory = public_path().'/img/products/'.$product->sku;
+			$filePath = public_path().'/img/products/'.$product->photo;
 
-			if(File::exists($directory))
+			if(File::exists($filePath))
 			{
-				File::deleteDirectory($directory);
+				File::delete($filePath);
 			}
 
-			mkdir(public_path()."\img\products".'\\'.$product->sku);
-
-			$path = public_path()."\img\products\\".$product->sku;
+			$path = public_path()."\img\products\\";
 
 			$randName = $product->sku.'-'.Input::file('photo')->getClientOriginalName();
 
@@ -96,11 +92,11 @@ Class Product extends Eloquent
 	//delete product
 	public function deleteProduct($product)
 	{
-		$directory = public_path().'/img/products/'.$product->sku;
+		$filePath = public_path().'/img/products/'.$product->photo;
 
-		if(File::exists($directory))
+		if(File::exists($filePath))
 		{
-			File::deleteDirectory($directory);
+			File::delete($filePath);
 		}
 		
 		$product->delete();
