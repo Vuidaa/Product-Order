@@ -41,7 +41,7 @@ Class Product extends Eloquent
 
 		if (Input::hasFile('photo'))
 		{
-			$path = public_path()."\img\products\\";
+			$path = public_path()."/img/products/";
 
 			$randName = $this->sku.'-'.Input::file('photo')->getClientOriginalName();
 
@@ -71,7 +71,7 @@ Class Product extends Eloquent
 				File::delete($filePath);
 			}
 
-			$path = public_path()."\img\products\\";
+			$path = public_path()."/img/products/";
 
 			$randName = $product->sku.'-'.Input::file('photo')->getClientOriginalName();
 
